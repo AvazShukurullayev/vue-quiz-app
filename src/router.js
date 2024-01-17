@@ -16,6 +16,11 @@ const routes =  [
     path: "/create",
     name: "create",
     component: () => import("./components/category/AddCategory.vue")
+  },
+  {
+    path: "/view-page",
+    name: "view-page",
+    component: () => import("./page/ViewPageItem.vue")
   }
 ];
 

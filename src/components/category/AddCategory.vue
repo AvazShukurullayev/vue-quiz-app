@@ -3,7 +3,7 @@
     <div v-if="!submitted">
       <div class="form-group">
         <label>Fan nomi</label>
-        <input type="text" class="form-control" it="subjectName" required v-model="category.name" name="subjectName"/>
+        <input type="text" class="form-control" id="subjectName" required v-model="category.name" name="subjectName"/>
       </div>
       <button @click="saveCategory" class="btn btn-success">Saqlash</button>
     </div>
@@ -18,7 +18,7 @@
 import CategoryService from "../../services/CategoryService";
 
 export default {
-  name: "add-category",
+  name: "AddCategory",
   data() {
     return {
       category: {
@@ -30,13 +30,12 @@ export default {
   },
   methods: {
     saveCategory() {
-      var data = {
-        name: this.category.name
-      };
-
-      CategoryService.create(data)
+      // var data = {
+      //   name: this.category.name
+      // };
+      CategoryService.create({name: this.category.name})
           .then(response => {
-            this.category.id = response.category.id;
+            this.category.id = response.data.category.id;
             console.log(response.data);
             this.submitted = true;
           });

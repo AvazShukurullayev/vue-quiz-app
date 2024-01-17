@@ -1,10 +1,10 @@
 import axios from "./axios.js";
 
 const ServiceCategories = {
-    getAll(){
+    getAll() {
         return axios.get("/all")
     },
-    getById(id){
+    getById(id) {
         return axios.get(`${id}`)
     },
     create(data) {
@@ -13,10 +13,10 @@ const ServiceCategories = {
     update(id, data) {
         return axios.put(`${id}`, data)
     },
-    delete(id){
+    delete(id) {
         return axios.delete(`${id}`)
     },
-    findByName(name){
+    findByName(name) {
         return axios.get(`/search=${name}`)
     }
 }
